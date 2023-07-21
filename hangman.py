@@ -2,8 +2,8 @@
 # *Art created by internet artist sk*
 
 from random import randrange
-from string import *  # noqa: F403
-from hangman_lib import *  # noqa: F403
+from string import *  
+from hangman_lib import *  
 
 WORDLIST_FILENAME = "words.txt"
 
@@ -75,23 +75,23 @@ def play_hangman():
     global secret_code
     
     while mistakes_made < MAX_MISTAKES and print_guessed() != secret_word:
-        guess = input("What letter is your guess?\nor type 'word' to make a word guess.\n>")  # noqa: E501
+        guess = input("What letter is your guess?\nor type 'word' to make a word guess.\n>")  
         if guess == 'word':
             word_guess = input('What word would you like to guess?\n>')
             if word_guess == secret_word:
-                print_hangman_image(mistakes_made)   # noqa: F405
+                print_hangman_image(mistakes_made)   
                 print('Letters Guessed: ' + str(letters_guessed))
-                print('Mistakes Made: MAX-' + str(MAX_MISTAKES) +  ' MADE-' + str(mistakes_made))  # noqa: E501
+                print('Mistakes Made: MAX-' + str(MAX_MISTAKES) +  ' MADE-' + str(mistakes_made))  
                 print('Current Progress: ' + secret_word)
-                print("🎊🎊!!!CONGRATS, YOU WIN THE GAME!!!🎊🎊\nTHE ANSWER WAS: " + secret_word)  # noqa: E501
+                print("🎊🎊!!!CONGRATS, YOU WIN THE GAME!!!🎊🎊\nTHE ANSWER WAS: " + secret_word)  
                 break
             
             elif word_guess != secret_word:
                 mistakes_made += 1
-                print_hangman_image(mistakes_made)  # noqa: F405
+                print_hangman_image(mistakes_made)  
                 print('That is not the word')
                 print('Letters Guessed: ' + str(letters_guessed))
-                print('Mistakes Made: MAX-' + str(MAX_MISTAKES) +  ' MADE-' + str(mistakes_made))  # noqa: E501
+                print('Mistakes Made: MAX-' + str(MAX_MISTAKES) +  ' MADE-' + str(mistakes_made))  
                 print('Current Progress: ' + print_guessed())
                 
         elif guess not in letters_guessed:
@@ -99,29 +99,29 @@ def play_hangman():
                 letters_guessed.append(guess)
 
                 if guess in secret_word:
-                    print_hangman_image(mistakes_made)  # noqa: F405
+                    print_hangman_image(mistakes_made)  
                     print('Letters Guessed: ' + str(letters_guessed))
-                    print('Mistakes Made: MAX-' + str(MAX_MISTAKES) +  ' MADE-' + str(mistakes_made))  # noqa: E501
+                    print('Mistakes Made: MAX-' + str(MAX_MISTAKES) +  ' MADE-' + str(mistakes_made))  
                     print('Current Progress: ' + print_guessed())
 
                 else:
                     mistakes_made += 1
-                    print_hangman_image(mistakes_made)  # noqa: F405
+                    print_hangman_image(mistakes_made)  
                     print('That letter is not in the word')
                     print('Letters Guessed: ' + str(letters_guessed))
-                    print('Mistakes Made: MAX-' + str(MAX_MISTAKES) +  ' MADE-' + str(mistakes_made))  # noqa: E501
+                    print('Mistakes Made: MAX-' + str(MAX_MISTAKES) +  ' MADE-' + str(mistakes_made))  
                     print('Current Progress: ' + print_guessed())
         
         elif guess in letters_guessed:
-            print_hangman_image(mistakes_made)  # noqa: F405
+            print_hangman_image(mistakes_made)  
             print('Letters Guessed: ' + str(letters_guessed))
-            print('Mistakes Made: MAX-' + str(MAX_MISTAKES) +  ' MADE-' + str(mistakes_made))  # noqa: E501
+            print('Mistakes Made: MAX-' + str(MAX_MISTAKES) +  ' MADE-' + str(mistakes_made))  
             print('Current Progress: ' + print_guessed()) 
             print("!!!LETTER ALREADY GUESSED, TRY AGAIN!!!")  
             
     else:
         if print_guessed() == secret_word:
-            print("🎊🎊!!!CONGRATS, YOU WIN THE GAME!!!🎊🎊\nTHE ANSWER WAS: " + secret_word)  # noqa: E501ord)
+            print("🎊🎊!!!CONGRATS, YOU WIN THE GAME!!!🎊🎊\nTHE ANSWER WAS: " + secret_word)  ord)
         
         elif MAX_MISTAKES == 6:
             print("❌❌SORRY, YOU LOSE THE GAME❌❌\nTHE ANSWER WAS: " + secret_word)
